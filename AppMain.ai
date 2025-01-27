@@ -1,0 +1,39 @@
+Import 
+{
+   "Strings.ad", 
+   "ZKNuetzlich.ad", 
+   "System.ad",
+   "AppMain.ad",
+   "SprNcurses.ad"
+}
+
+
+
+
+int Main::main()
+{ 
+   var SystemControl syc;
+   var SprNcurses spnc;
+   spnc.init();
+  
+
+   var char zeichen;
+   var char zeichen2 = 'x';
+   do
+   {
+      for(var int i=0; i < 30; i++)
+      {
+         spnc.zeichne(i,i,zeichen2);
+      }
+      spnc.auffrischen();
+
+      if(spnc.leseKnopfDruck(zeichen) == 1)
+      {
+        zeichen2 = zeichen;
+      }
+      else { syc.uSleep(100000); }
+   }
+   while( zeichen != 'x' );
+   return 1;
+   
+}

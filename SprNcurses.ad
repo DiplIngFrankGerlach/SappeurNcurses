@@ -1,0 +1,15 @@
+
+
+class SprNcurses
+{
+methods:
+   void init();
+
+   void zeichne(int x, int y, char zeichen); 
+
+   void auffrischen();
+
+   int leseKnopfDruck(&char zeichen);
+
+   ~SprNcurses();
+};

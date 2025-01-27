@@ -6,6 +6,7 @@ Import
 
 }
 
+//initialize the ncurses system
 void SprNcurses::init()
 {
    inline_cpp[[
@@ -18,6 +19,7 @@ void SprNcurses::init()
    ]]
 }
 
+//draw character "zeichen" at position x,y 
 void SprNcurses::zeichne(int x, int y, char zeichen)
 {
    inline_cpp[[
@@ -26,11 +28,15 @@ void SprNcurses::zeichne(int x, int y, char zeichen)
    ]] 
 }
 
+//refresh screen
 void SprNcurses::auffrischen()
 {
    inline_cpp[[ refresh(); ]]
 }
 
+
+//read a keypress into "zeichen"
+// return 1 on keypress, 0 on no keypress
 int SprNcurses::leseKnopfDruck(&char zeichen)
 {
   inline_cpp[[
@@ -45,6 +51,7 @@ int SprNcurses::leseKnopfDruck(&char zeichen)
   return 0; // No key press
 }
 
+//destructor, deinitialize ncurses
 SprNcurses::~SprNcurses()
 {
   inline_cpp[[ endwin(); ]]
